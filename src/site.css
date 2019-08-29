@@ -5,10 +5,10 @@
     height: 60vh;
     position: relative;
     margin: auto;
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 10px;
-    align-items: end;
+    align-items: flex-end;
     padding-left: 1vw;
     padding-right: 1vw;
 }
@@ -20,25 +20,32 @@
 }
 
 .BarsInGraph {
-    grid-row: 1;
+    /* grid-row: 1; */
     border: 5px;
     font-family: 'Bitter', serif;
     text-align: center;
     width: 15vw;
     transition: 0.5s;
+    height: 50%;
+    grid-column: 2;
+    background-color: #ED1B24;
 }
+.BarsInGraph:hover {
+    width: 15.3vw;
+    box-shadow: 0 -2px 10px 0 grey;
+ }
 
-.BarOne {
+/* .BarOne {
     height: 21.9%;
     grid-column: 1;
     background-color: #fff10a;
-}
-.BarOne:hover {
+} */
+/* .BarOne:hover {
     width: 15.3vw;
     box-shadow: 0 -2px 10px 0 grey;
-}
+} */
 
-.BarTwo {
+/* .BarTwo {
     height: 1.96%;
     grid-column: 2;
     background-color: #ED1B24;
@@ -46,9 +53,9 @@
 .BarTwo:hover {
     width: 15.3vw;
     box-shadow: 0 -2px 10px 0 grey;
-}
+} */
 
-.BarThree {
+/* .BarThree {
     height: 81.7%;
     grid-column: 3;
     background-color: #451400;
@@ -62,8 +69,8 @@
     height: 12.9%;
     grid-column: 4;
     background-color: #0085ca;
-}
-.BarFour:hover {
+} */
+/* .BarFour:hover {
     width: 15.3vw;
     box-shadow: 0 -2px 10px 0 grey;
 }
@@ -76,7 +83,7 @@
 .BarFive:hover {
     width: 15.3vw;
     box-shadow: 0 -2px 10px 0 grey;
-}
+} */
 
 .BarNamePosition {
     position: relative;
