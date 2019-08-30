@@ -6,7 +6,7 @@
     position: relative;
     margin: auto;
     display: flex;
-    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-columns: repeat(5, 1fr); */
     column-gap: 10px;
     align-items: flex-end;
     padding-left: 1vw;
@@ -27,13 +27,18 @@
     width: 15vw;
     transition: 0.5s;
     height: 50%;
-    grid-column: 2;
+    /* grid-column: 2; */
     background-color: #ED1B24;
 }
 .BarsInGraph:hover {
     width: 15.3vw;
     box-shadow: 0 -2px 10px 0 grey;
  }
+
+.BarNamePosition {
+    position: relative;
+    top: -75px;
+}
 
 /* .BarOne {
     height: 21.9%;
@@ -84,12 +89,7 @@
     width: 15.3vw;
     box-shadow: 0 -2px 10px 0 grey;
 } */
-
-.BarNamePosition {
-    position: relative;
-    top: -50px;
-}
-
+/* 
 .navbar {
 	position: fixed;
 	height: 100%;
@@ -104,4 +104,4 @@
 	color: black;
 	text-decoration: none;
 	margin-left: 25px;
-}
+} */
