@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
-import './site.css';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -13,31 +12,32 @@ class App extends Component {
     ],
   };
 
-  // componentDidMount = () => {
-  //   fetch("https://financialmodelingprep.com/api/v3/stock/real-time-price")
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log('Did component mount?', data);
-// make a newList Michael's suggestion
-// specify whick symbols I want from the stockList Michael's suggestion
-// push the items in the newList
-        // let newList = [];
-        // for (let item of data.stockList) {
-        //   if (item.symbol === "CMG"
-        //         || item.symbol === "MCD"
+  componentDidMount = () => {
+    fetch("https://financialmodelingprep.com/api/v3/stock/real-time-price")
+      .then(response => response.json())
+      .then(data => {
+        console.log('Did component mount?', data);
+        // make a newList Michael's suggestion
+        // specify whick symbols I want from the stockList Michael's suggestion
+        // push the items in the newList
+        let newList = [];
+        for (let item of data.stockList) {
+          if (
+            // item.symbol === "CMG"
+            //     || item.symbol === "MCD"
         //         || item.symbol === "WEN"
-        //         || item.symbol === "COKE"
-        //         || item.symbol === "PEP") {
-        //       newList.push(item);
-        //   }
-        // }
+        //         || item.symbol === "PEP"|| 
+                item.symbol === "COKE") {
+              newList.push(item);
+          }
+        }
 // make newList become stockList Michael's suggestion
-  //       this.setState({
-  //         stockList: newList,
-  //       });
-  //       console.log('this.state.stockList', this.state.stockList);
-  //     });
-  // }
+        this.setState({
+          stockList: newList,
+        });
+        console.log('this.state.stockList', this.state.stockList);
+      });
+  }
 
   newOnSearchTermChange = (ev) => {
     let value = ev.target.value;
@@ -58,14 +58,29 @@ class App extends Component {
           console.log('this is the data', data);
           this.setState({
             stockList: listPlusInput,
+            searchTerm: '',
           });
+          // if (this.state.stockList > 5) {
+          //   this.state.stockList.shift();
+          //   console.log('stockList after onSubmit', this.state.stockList);
+          //   }
         })
+
+        
+  }
+
+  removeStock = () => {
+    console.log('Removing', this.state.searchTerm);
+    // TODO: state.stockList returns an ARRAY. To remove items in the ARRAY,
+    // I need to specify which on to delete. Somehow, I need to connect the
+    // ARRAY w/ specific SYMBOLs.
+    // Look into 'removeChild' to remove elements
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Title Goes Here</h1>
+        <h1 className="MainTitle">Stock Market Prices</h1>
         <div className="MainContentBorder">
           {
             this.state.stockList.map(data => (
@@ -76,11 +91,12 @@ class App extends Component {
             }
         </div>
         <input
-            placeholder="Enter Stock Symbol Here"
+            placeholder="Enter Stock Symbol to Add or Remove"
+            className="InputField"
             value={this.state.searchTerm}
-            onChange={this.newOnSearchTermChange} />
-
-        <button onClick={() => this.onSubmit()}>Submit</button>
+            onChange={this.newOnSearchTermChange} /><br />
+        <button className="SubmitStyle" onClick={() => this.onSubmit()}>Submit</button><br />
+        <button className="RemoveStyle" onClick={() => this.removeStock()}>Remove</button>
 
           
       </div>
