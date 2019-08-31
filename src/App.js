@@ -72,9 +72,10 @@ class App extends Component {
   removeStock = () => {
     console.log('Removing', this.state.searchTerm);
     // TODO: state.stockList returns an ARRAY. To remove items in the ARRAY,
-    // I need to specify which on to delete. Somehow, I need to connect the
-    // ARRAY w/ specific SYMBOLs.
+    // I need to specify which on to delete. Somehow, I need to connect the ARRAY w/ specific SYMBOLs.
     // Look into 'removeChild' to remove elements
+    // Another option in using the .filtered method to remove items in the ARRAY
+    // Quidditch Challenge would work
   }
 
   render() {
